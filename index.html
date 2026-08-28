@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SSC Notes</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, "Noto Sans Bengali", sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 32px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 8px 0 0;
+    font-size: 15px;
+}
+
+.container {
+    width: 92%;
+    max-width: 700px;
+    margin: 25px auto;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.section {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 28px 0 14px;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 6px 0 0;
+    color: #667085;
+    font-size: 14px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.back {
+    background: #172554;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 13px;
+}
+  /* =================================
+        SSC NOTES NEW THEME
+================================= */
+
+body {
+    background: #f1f5f9;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #172554, #1e3a8a);
+    padding: 38px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    max-width: 720px;
+}
+
+
+/* SEARCH BAR */
+
+.search {
+    background: white;
+    border: 2px solid transparent;
+    padding: 16px 18px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.search:focus {
+    border-color: #2563eb;
+}
+
+
+/* SECTION TITLE */
+
+.section {
+    color: #172554;
+    font-size: 22px;
+    padding-left: 5px;
+    margin-top: 32px;
+}
+
+
+/* CARDS */
+
+.card {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    border-radius: 17px;
+    padding: 20px;
+    margin: 14px 0;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* CLICK EFFECT */
+
+.card:active {
+    transform: scale(0.97);
+}
+
+
+/* HOVER */
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.10);
+}
+
+
+/* CARD TITLE */
+
+.card h3 {
+    color: #172554;
+    font-size: 18px;
+}
+
+
+/* CARD DESCRIPTION */
+
+.card p {
+    color: #64748b;
+}
+
+
+/* BACK BUTTON */
+
+.back {
+    background: linear-gradient(
+        135deg,
+        #172554,
+        #1e3a8a
+    );
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.15);
+
+    transition: 0.2s;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+    color: #64748b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .section {
+        font-size: 20px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+}
+  /* =================================
+        SSC NOTES NEW THEME
+================================= */
+
+body {
+    background: #f1f5f9;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #172554, #1e3a8a);
+    padding: 38px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    max-width: 720px;
+}
+
+
+/* SEARCH BAR */
+
+.search {
+    background: white;
+    border: 2px solid transparent;
+    padding: 16px 18px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.search:focus {
+    border-color: #2563eb;
+}
+
+
+/* SECTION TITLE */
+
+.section {
+    color: #172554;
+    font-size: 22px;
+    padding-left: 5px;
+    margin-top: 32px;
+}
+
+
+/* CARDS */
+
+.card {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    border-radius: 17px;
+    padding: 20px;
+    margin: 14px 0;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* CLICK EFFECT */
+
+.card:active {
+    transform: scale(0.97);
+}
+
+
+/* HOVER */
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.10);
+}
+
+
+/* CARD TITLE */
+
+.card h3 {
+    color: #172554;
+    font-size: 18px;
+}
+
+
+/* CARD DESCRIPTION */
+
+.card p {
+    color: #64748b;
+}
+
+
+/* BACK BUTTON */
+
+.back {
+    background: linear-gradient(
+        135deg,
+        #172554,
+        #1e3a8a
+    );
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.15);
+
+    transition: 0.2s;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+    color: #64748b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .section {
+        font-size: 20px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+}/* =================================
+        SSC NOTES NEW THEME
+================================= */
+
+body {
+    background: #f1f5f9;
+    color: #172033;
+}
+
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #172554, #1e3a8a);
+    padding: 38px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    max-width: 720px;
+}
+
+
+/* SEARCH BAR */
+
+.search {
+    background: white;
+    border: 2px solid transparent;
+    padding: 16px 18px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.search:focus {
+    border-color: #2563eb;
+}
+
+
+/* SECTION TITLE */
+
+.section {
+    color: #172554;
+    font-size: 22px;
+    padding-left: 5px;
+    margin-top: 32px;
+}
+
+
+/* CARDS */
+
+.card {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    border-radius: 17px;
+    padding: 20px;
+    margin: 14px 0;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* CLICK EFFECT */
+
+.card:active {
+    transform: scale(0.97);
+}
+
+
+/* HOVER */
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.10);
+}
+
+
+/* CARD TITLE */
+
+.card h3 {
+    color: #172554;
+    font-size: 18px;
+}
+
+
+/* CARD DESCRIPTION */
+
+.card p {
+    color: #64748b;
+}
+
+
+/* BACK BUTTON */
+
+.back {
+    background: linear-gradient(
+        135deg,
+        #172554,
+        #1e3a8a
+    );
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.15);
+
+    transition: 0.2s;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 30px;
+    color: #64748b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .section {
+        font-size: 20px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+}
+  /* ===== NEW SSC NOTES THEME ===== */
+
+body {
+    background: #eef3f8;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    padding: 45px 20px;
+    border-radius: 0 0 28px 28px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+/* Main area */
+.container {
+    width: 94%;
+    max-width: 680px;
+    margin: 22px auto;
+}
+
+/* Search */
+.search {
+    height: 54px;
+    padding: 0 20px;
+    border-radius: 27px;
+    background: white;
+    border: 2px solid #dbe4f0;
+    font-size: 16px;
+    box-shadow: 0 6px 20px rgba(15,23,42,0.08);
+}
+
+.search:focus {
+    border-color: #3b82f6;
+}
+
+/* Section headings */
+.section {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 30px 4px 12px;
+}
+
+/* Cards */
+.card {
+    min-height: 68px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    padding: 18px 20px;
+    margin: 12px 0;
+
+    box-shadow: 0 5px 15px rgba(15,23,42,0.06);
+
+    transition: 0.2s;
+}
+
+/* Clickable cards */
+.card[onclick] {
+    border-left: 5px solid #2563eb;
+}
+
+/* Card click */
+.card:active {
+    transform: scale(0.97);
+}
+
+/* Card title */
+.card h3 {
+    color: #0f172a;
+    font-size: 17px;
+    margin: 0;
+}
+
+/* Description */
+.card p {
+    color: #64748b;
+    margin-top: 7px;
+}
+
+/* Back button */
+.back {
+    border-radius: 14px;
+    background: #0f172a;
+    padding: 13px 20px;
+    box-shadow: 0 5px 12px rgba(15,23,42,0.15);
+}
+
+/* Footer */
+footer {
+    padding: 35px 10px;
+    color: #64748b;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    header {
+        padding: 38px 15px;
+    }
+
+    header h1 {
+        font-size: 29px;
+    }
+
+    .card {
+        padding: 17px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =================================================
+                         HOME
+================================================= -->
+
+<div id="home" class="page active">
+
+<header>
+    <h1>📚 SSC NOTES</h1>
+    <p>Class 9–10 Study Notes</p>
+</header>
+
+<div class="container">
+
+<input
+    class="search"
+    id="search"
+    type="text"
+    placeholder="🔍 Search Notes..."
+    onkeyup="searchSubjects()"
+>
+
+<div class="section">
+    📌 আবশ্যিক বিষয়
+</div>
+
+
+<!-- বাংলা -->
+
+<div class="card subject" onclick="openPage('bangla')">
+    <h3>📘 বাংলা</h3>
+    <p>বাংলা ১ম পত্র • বাংলা ২য় পত্র</p>
+</div>
+
+
+<!-- ইংরেজি -->
+
+<div class="card subject" onclick="openPage('english')">
+    <h3>📗 ইংরেজি</h3>
+    <p>ইংরেজি ১ম পত্র • ইংরেজি ২য় পত্র</p>
+</div>
+
+
+<!-- গণিত -->
+
+<div class="card subject">
+    <h3>➗ গণিত</h3>
+    <p>Mathematics</p>
+</div>
+
+
+<!-- ICT -->
+
+<div class="card subject">
+    <h3>💻 তথ্য ও যোগাযোগ প্রযুক্তি</h3>
+    <p>ICT</p>
+</div>
+
+
+<!-- ধর্ম -->
+
+<div class="card subject" onclick="openPage('religion')">
+    <h3>🛕 ধর্ম ও নৈতিক শিক্ষা</h3>
+    <p>৪টি ধর্ম</p>
+</div>
+
+
+
+<div class="section">
+    🔬 বিভাগ নির্বাচন
+</div>
+
+
+<!-- বিজ্ঞান -->
+
+<div class="card subject" onclick="openPage('science')">
+    <h3>🔬 বিজ্ঞান বিভাগ</h3>
+    <p>Science</p>
+</div>
+
+
+<!-- ব্যবসায় শিক্ষা -->
+
+<div class="card subject" onclick="openPage('business')">
+    <h3>💼 ব্যবসায় শিক্ষা</h3>
+    <p>Business Studies</p>
+</div>
+
+
+<!-- মানবিক -->
+
+<div class="card subject" onclick="openPage('humanities')">
+    <h3>🎓 মানবিক বিভাগ</h3>
+    <p>Humanities</p>
+</div>
+
+
+
+<div class="section">
+    📚 অন্যান্য বিষয়
+</div>
+
+
+<div class="card subject">
+    <h3>🏃 শারীরিক শিক্ষা</h3>
+</div>
+
+<div class="card subject">
+    <h3>🎯 ক্যারিয়ার শিক্ষা</h3>
+</div>
+
+<div class="card subject">
+    <h3>🏠 গার্হস্থ্য বিজ্ঞান</h3>
+</div>
+
+<div class="card subject">
+    <h3>🎨 চারু ও কারুকলা</h3>
+</div>
+
+</div>
+
+<footer>
+    SSC Notes • Class 9–10
+</footer>
+
+</div>
+
+
+
+<!-- =================================================
+                         বাংলা
+================================================= -->
+
+<div id="bangla" class="page">
+
+<header>
+    <h1>📘 বাংলা</h1>
+    <p>বাংলা বিষয়ের নোট</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+
+<div class="card" onclick="openPage('bangla1')">
+    <h3>📖 বাংলা ১ম পত্র</h3>
+    <p>বাংলা সাহিত্য • বাংলা সহপাঠ</p>
+</div>
+
+
+<div class="card">
+    <h3>📝 বাংলা ২য় পত্র</h3>
+    <p>ব্যাকরণ ও নির্মিতি</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                    বাংলা ১ম পত্র
+================================================= -->
+
+<div id="bangla1" class="page">
+
+<header>
+    <h1>📖 বাংলা ১ম পত্র</h1>
+    <p>বাংলা সাহিত্য ও সহপাঠ</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('bangla')">
+    ← ফিরে যান
+</button>
+
+
+<div class="card">
+    <h3>📚 বাংলা সাহিত্য</h3>
+    <p>গদ্য ও পদ্য</p>
+</div>
+
+
+<div class="card">
+    <h3>📕 বাংলা সহপাঠ</h3>
+    <p>উপন্যাস ও নাটক</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                       ENGLISH
+================================================= -->
+
+<div id="english" class="page">
+
+<header>
+    <h1>📗 ইংরেজি</h1>
+    <p>English</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+
+<div class="card">
+    <h3>📖 ইংরেজি ১ম পত্র</h3>
+    <p>English First Paper</p>
+</div>
+
+
+<div class="card">
+    <h3>📝 ইংরেজি ২য় পত্র</h3>
+    <p>English Second Paper</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                     ধর্ম
+================================================= -->
+
+<div id="religion" class="page">
+
+<header>
+    <h1>🛕 ধর্ম ও নৈতিক শিক্ষা</h1>
+    <p>ধর্মভিত্তিক নোট</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+
+<!-- ইসলাম -->
+
+<div class="card" onclick="openPage('islam')">
+    <h3>☪️ ইসলাম শিক্ষা</h3>
+    <p>ইসলাম ধর্মের নোট</p>
+</div>
+
+
+<!-- হিন্দু -->
+
+<div class="card" onclick="openPage('hindu')">
+    <h3>🕉️ হিন্দুধর্ম শিক্ষা</h3>
+    <p>হিন্দুধর্মের নোট</p>
+</div>
+
+
+<!-- বৌদ্ধ -->
+
+<div class="card" onclick="openPage('buddhist')">
+    <h3>☸️ বৌদ্ধধর্ম শিক্ষা</h3>
+    <p>বৌদ্ধধর্মের নোট</p>
+</div>
+
+
+<!-- খ্রিষ্টান -->
+
+<div class="card" onclick="openPage('christian')">
+    <h3>✝️ খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</h3>
+    <p>খ্রিষ্টধর্মের নোট</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                       ইসলাম
+================================================= -->
+
+<div id="islam" class="page">
+
+<header>
+    <h1>☪️ ইসলাম শিক্ষা</h1>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('religion')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>📚 অধ্যায় ১</h3>
+</div>
+
+<div class="card">
+    <h3>📚 অধ্যায় ২</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                      হিন্দুধর্ম
+================================================= -->
+
+<div id="hindu" class="page">
+
+<header>
+    <h1>🕉️ হিন্দুধর্ম শিক্ষা</h1>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('religion')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>📚 অধ্যায় ১</h3>
+</div>
+
+<div class="card">
+    <h3>📚 অধ্যায় ২</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                      বৌদ্ধধর্ম
+================================================= -->
+
+<div id="buddhist" class="page">
+
+<header>
+    <h1>☸️ বৌদ্ধধর্ম শিক্ষা</h1>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('religion')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>📚 অধ্যায় ১</h3>
+</div>
+
+<div class="card">
+    <h3>📚 অধ্যায় ২</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                     খ্রিষ্টধর্ম
+================================================= -->
+
+<div id="christian" class="page">
+
+<header>
+    <h1>✝️ খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</h1>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('religion')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>📚 অধ্যায় ১</h3>
+</div>
+
+<div class="card">
+    <h3>📚 অধ্যায় ২</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                    SCIENCE
+================================================= -->
+
+<div id="science" class="page">
+
+<header>
+    <h1>🔬 বিজ্ঞান বিভাগ</h1>
+    <p>Science Group</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>🌍 বাংলাদেশ ও বিশ্বপরিচয়</h3>
+</div>
+
+<div class="card">
+    <h3>🧲 পদার্থবিজ্ঞান</h3>
+</div>
+
+<div class="card">
+    <h3>🧪 রসায়ন</h3>
+</div>
+
+<div class="card">
+    <h3>🧬 জীববিজ্ঞান</h3>
+</div>
+
+<div class="card">
+    <h3>📐 উচ্চতর গণিত</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                    BUSINESS
+================================================= -->
+
+<div id="business" class="page">
+
+<header>
+    <h1>💼 ব্যবসায় শিক্ষা</h1>
+    <p>Business Studies</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>🔬 বিজ্ঞান</h3>
+</div>
+
+<div class="card">
+    <h3>📊 হিসাববিজ্ঞান</h3>
+</div>
+
+<div class="card">
+    <h3>💼 ব্যবসায় উদ্যোগ</h3>
+</div>
+
+<div class="card">
+    <h3>🏦 ফিন্যান্স ও ব্যাংকিং</h3>
+</div>
+
+<div class="card">
+    <h3>🌾 কৃষি শিক্ষা</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                    HUMANITIES
+================================================= -->
+
+<div id="humanities" class="page">
+
+<header>
+    <h1>🎓 মানবিক বিভাগ</h1>
+    <p>Humanities</p>
+</header>
+
+<div class="container">
+
+<button class="back" onclick="openPage('home')">
+    ← ফিরে যান
+</button>
+
+<div class="card">
+    <h3>🔬 বিজ্ঞান</h3>
+</div>
+
+<div class="card">
+    <h3>💰 অর্থনীতি</h3>
+</div>
+
+<div class="card">
+    <h3>⚖️ পৌরনীতি ও নাগরিকতা</h3>
+</div>
+
+<div class="card">
+    <h3>🌎 ভূগোল ও পরিবেশ</h3>
+</div>
+
+<div class="card">
+    <h3>📜 বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা</h3>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                    JAVASCRIPT
+================================================= -->
+
+<script>
+
+function openPage(page){
+
+    let pages =
+    document.querySelectorAll(".page");
+
+    pages.forEach(function(p){
+
+        p.classList.remove("active");
+
+    });
+
+    document
+    .getElementById(page)
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function searchSubjects(){
+
+    let input =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+    let subjects =
+    document
+    .querySelectorAll(".subject");
+
+    subjects.forEach(function(card){
+
+        let text =
+        card.innerText.toLowerCase();
+
+        if(text.includes(input)){
+
+            card.style.display="block";
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
