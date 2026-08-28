@@ -714,6 +714,8 @@ footer {
 
 }
 </style>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#172554">
 </head>
 
 <body>
@@ -1314,6 +1316,10 @@ function searchSubjects(){
 }
 
 </script>
-
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
+</script>
 </body>
 </html>

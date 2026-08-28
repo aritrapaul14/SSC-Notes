@@ -1,0 +1,16 @@
+{
+  "name": "SSC Notes",
+  "short_name": "SSC Notes",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#172554",
+  "description": "Class 9-10 SSC Notes",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
