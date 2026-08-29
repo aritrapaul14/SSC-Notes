@@ -1,1104 +1,1282 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APR SSC NOTES</title>
-  <!-- Google Fonts for crisp Bengali Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #3a506b 100%);
-      --header-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      --page-bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --accent-blue: #2563eb;
-      --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
-      --shadow-hover: 0 8px 25px rgba(37, 99, 235, 0.12);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Hind Siliguri', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
+<title>APR SSC Notes</title>
 
-    body {
-      background-color: #0f172a;
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    #app-container {
-      width: 100%;
-      max-width: 500px;
-      background: var(--page-bg);
-      min-height: 100vh;
-      position: relative;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:"Hind Siliguri",sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
 
-    /* ---------------- 1. SPLASH SCREEN ---------------- */
-    #splash-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: var(--bg-gradient);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
+:root{
+  --blue:#2563eb;
+  --dark:#07111f;
+  --text:#0f172a;
+  --muted:#64748b;
+  --white:#fff;
+}
 
-    .splash-apr {
-      font-size: 5rem;
-      font-weight: 800;
-      letter-spacing: 4px;
-      background: linear-gradient(45deg, #60a5fa, #3b82f6, #93c5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 2px;
-      text-shadow: 0 0 35px rgba(59, 130, 246, 0.5);
-      animation: pulseScale 2s infinite alternate;
-    }
+body{
+  min-height:100vh;
+  background:#07111f;
+  color:var(--text);
+}
 
-    .splash-author {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #93c5fd;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
+#app{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  margin:auto;
+  background:#f6f8fc;
+  overflow:hidden;
+}
 
-    .splash-tagline {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 6px 22px;
-      border-radius: 30px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      letter-spacing: 2px;
-    }
+/* ================= SPLASH ================= */
 
-    .splash-loader {
-      margin-top: 45px;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(255, 255, 255, 0.15);
-      border-left-color: #60a5fa;
-      border-radius: 50%;
-      animation: spin 0.9s linear infinite;
-    }
+#splash{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle at 50% 35%,#2563eb 0%,#102653 35%,#020617 80%);
+  color:white;
+  transition:.7s ease;
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+.splash-inner{
+  text-align:center;
+  animation:splashIn 1s ease;
+}
 
-    @keyframes pulseScale {
-      from { transform: scale(1); }
-      to { transform: scale(1.06); }
-    }
+.splash-logo{
+  font-size:72px;
+  font-weight:700;
+  letter-spacing:12px;
+  background:linear-gradient(90deg,#60a5fa,#fff,#60a5fa);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:glow 1.5s infinite alternate;
+}
 
-    /* ---------------- HEADERS ---------------- */
-    .app-header {
-      background: var(--header-gradient);
-      color: white;
-      padding: 18px 20px 22px 20px;
-      border-bottom-left-radius: 24px;
-      border-bottom-right-radius: 24px;
-      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.25);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+.splash-name{
+  font-size:20px;
+  color:#bfdbfe;
+  font-weight:600;
+}
 
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+.splash-line{
+  width:70px;
+  height:2px;
+  background:#60a5fa;
+  margin:12px auto;
+}
 
-    .back-btn {
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      flex-shrink: 0;
-    }
+.splash-sub{
+  font-size:14px;
+  letter-spacing:4px;
+  opacity:.85;
+}
 
-    .back-btn:active {
-      background: rgba(255, 255, 255, 0.4);
-    }
+.loader{
+  width:32px;
+  height:32px;
+  border:3px solid rgba(255,255,255,.2);
+  border-top-color:#60a5fa;
+  border-radius:50%;
+  margin:35px auto 0;
+  animation:spin .8s linear infinite;
+}
 
-    .header-title-container {
-      flex: 1;
-    }
+@keyframes splashIn{
+  from{opacity:0;transform:scale(.8)}
+  to{opacity:1;transform:scale(1)}
+}
 
-    .header-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
+@keyframes glow{
+  from{transform:scale(1)}
+  to{transform:scale(1.06)}
+}
 
-    .header-subtitle {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.88);
-      font-weight: 400;
-    }
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
 
-    /* Search Box */
-    .search-container {
-      margin-top: 14px;
-    }
+/* ================= PAGE ================= */
 
-    .search-box {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: none;
-      outline: none;
-      font-size: 0.95rem;
-      background: #ffffff;
-      color: #0f172a;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-      transition: all 0.2s;
-    }
+.page{
+  display:none;
+  min-height:100vh;
+  animation:pageIn .3s ease;
+}
 
-    .search-box:focus {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
-    }
+.page.active{
+  display:block;
+}
 
-    /* ---------------- PAGES ---------------- */
-    .page {
-      display: none;
-      padding: 16px 16px 36px 16px;
-      animation: fadeIn 0.3s ease-in-out;
-    }
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    .page.active {
-      display: block;
-    }
+/* ================= HEADER ================= */
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.header{
+  color:white;
+  padding:22px 18px 25px;
+  border-radius:0 0 28px 28px;
+  position:relative;
+  overflow:hidden;
+}
 
-    /* Section Headers */
-    .section-header {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin: 20px 0 10px 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.header::after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  right:-70px;
+  top:-80px;
+}
 
-    /* ---------------- CARDS (NO NESTED BUTTONS) ---------------- */
-    .card-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.header-content{
+  position:relative;
+  z-index:2;
+}
 
-    .nav-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 16px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-    }
+.header-row{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
 
-    .nav-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: #cbd5e1;
-    }
+.back{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:13px;
+  background:rgba(255,255,255,.16);
+  color:white;
+  font-size:21px;
+  cursor:pointer;
+}
 
-    .nav-card:active {
-      transform: scale(0.98);
-      background-color: #f8fafc;
-    }
+.title{
+  font-size:24px;
+  font-weight:700;
+}
 
-    .card-content {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+.subtitle{
+  font-size:13px;
+  opacity:.85;
+}
 
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #eff6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      flex-shrink: 0;
-    }
+/* ================= HOME THEME ================= */
 
-    .card-info {
-      display: flex;
-      flex-direction: column;
-    }
+.home-header{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(96,165,250,.35),transparent 35%),
+    linear-gradient(135deg,#0f2b64,#2563eb);
+}
 
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.3;
-    }
+/* ================= SEARCH ================= */
 
-    .card-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
+.search-wrap{
+  margin-top:18px;
+}
 
-    .card-arrow {
-      font-size: 1.1rem;
-      color: #94a3b8;
-      font-weight: bold;
-      transition: transform 0.2s;
-    }
+.search{
+  width:100%;
+  height:52px;
+  border:1px solid rgba(255,255,255,.25);
+  outline:none;
+  border-radius:17px;
+  padding:0 18px;
+  font-size:15px;
+  background:rgba(255,255,255,.96);
+  color:#0f172a;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
 
-    .nav-card:hover .card-arrow {
-      color: var(--accent-blue);
-      transform: translateX(3px);
-    }
+/* ================= CONTENT ================= */
 
-    /* ---------------- COMING SOON BOX ---------------- */
-    .coming-soon-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 40px 24px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      margin-top: 15px;
-    }
+.content{
+  padding:18px 16px 35px;
+}
 
-    .cs-icon {
-      font-size: 3.8rem;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
+.section-title{
+  margin:18px 3px 11px;
+  font-size:17px;
+  font-weight:700;
+  color:#172554;
+}
 
-    .cs-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 10px;
-    }
+.cards{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
 
-    .cs-desc {
-      font-size: 0.95rem;
-      color: #64748b;
-      line-height: 1.6;
-    }
+/* ================= CARDS ================= */
 
-    .cs-heart {
-      color: #2563eb;
-      font-weight: 600;
-      margin-top: 8px;
-    }
+.card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  width:100%;
+  padding:15px;
+  border-radius:19px;
+  background:white;
+  border:1px solid #e5eaf2;
+  box-shadow:0 5px 18px rgba(15,23,42,.055);
+  cursor:pointer;
+  transition:.2s ease;
+  overflow:hidden;
+}
 
-    /* Footer */
-    .app-footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 24px;
-      color: #94a3b8;
-      font-size: 0.85rem;
-      border-top: 1px solid #e2e8f0;
-    }
+.card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:var(--theme,#2563eb);
+}
 
-    .hidden { display: none !important; }
-  </style>
+.card:active{
+  transform:scale(.975);
+}
+
+.icon{
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+  background:color-mix(in srgb,var(--theme,#2563eb) 10%,white);
+  flex-shrink:0;
+}
+
+.card-info{
+  flex:1;
+}
+
+.card-title{
+  font-size:16px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.card-desc{
+  font-size:12px;
+  color:#64748b;
+  margin-top:2px;
+}
+
+.arrow{
+  color:#94a3b8;
+  font-size:18px;
+}
+
+/* ================= SUBJECT THEMES ================= */
+
+.theme-bangla{--theme:#b91c1c}
+.theme-english{--theme:#2563eb}
+.theme-math{--theme:#7c3aed}
+.theme-ict{--theme:#0891b2}
+.theme-religion{--theme:#15803d}
+
+.theme-science{--theme:#0284c7}
+.theme-business{--theme:#b45309}
+.theme-humanities{--theme:#9f1239}
+
+.theme-islam{
+  --theme:#15803d;
+}
+
+.theme-hindu{
+  --theme:#ea580c;
+}
+
+.theme-buddha{
+  --theme:#ca8a04;
+}
+
+.theme-christian{
+  --theme:#2563eb;
+}
+
+.theme-physics{
+  --theme:#2563eb;
+}
+
+.theme-chemistry{
+  --theme:#9333ea;
+}
+
+.theme-biology{
+  --theme:#16a34a;
+}
+
+.theme-hmath{
+  --theme:#4f46e5;
+}
+
+/* ================= SUBJECT HEADER THEMES ================= */
+
+.subject-header{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 32%),
+    linear-gradient(135deg,var(--header1),var(--header2));
+}
+
+.bangla-head{
+  --header1:#7f1d1d;
+  --header2:#dc2626;
+}
+
+.english-head{
+  --header1:#172554;
+  --header2:#2563eb;
+}
+
+.math-head{
+  --header1:#3b0764;
+  --header2:#7c3aed;
+}
+
+.ict-head{
+  --header1:#083344;
+  --header2:#0891b2;
+}
+
+.islam-head{
+  --header1:#052e16;
+  --header2:#15803d;
+}
+
+.hindu-head{
+  --header1:#7c2d12;
+  --header2:#ea580c;
+}
+
+.buddha-head{
+  --header1:#713f12;
+  --header2:#ca8a04;
+}
+
+.christian-head{
+  --header1:#172554;
+  --header2:#3b82f6;
+}
+
+.physics-head{
+  --header1:#172554;
+  --header2:#2563eb;
+}
+
+.chemistry-head{
+  --header1:#3b0764;
+  --header2:#9333ea;
+}
+
+.biology-head{
+  --header1:#052e16;
+  --header2:#16a34a;
+}
+
+.hmath-head{
+  --header1:#1e1b4b;
+  --header2:#4f46e5;
+}
+
+/* ================= COMING SOON ================= */
+
+.coming{
+  margin:20px 16px;
+  padding:45px 20px;
+  text-align:center;
+  border-radius:25px;
+  background:white;
+  border:1px solid #e2e8f0;
+  box-shadow:0 10px 30px rgba(15,23,42,.07);
+}
+
+.coming-icon{
+  font-size:54px;
+  margin-bottom:14px;
+}
+
+.coming h2{
+  font-size:21px;
+  color:#172554;
+}
+
+.coming p{
+  margin-top:10px;
+  color:#64748b;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.heart{
+  color:#2563eb;
+  font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  color:#94a3b8;
+  font-size:12px;
+  padding:25px 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:380px){
+  .title{font-size:21px}
+  .card-title{font-size:15px}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- 1. SPLASH SCREEN -->
-  <div id="splash-screen">
-    <div class="splash-apr">APR</div>
-    <div class="splash-author">Aritra Paul Raktim</div>
-    <div class="splash-tagline">SSC NOTES</div>
-    <div class="splash-loader"></div>
+<!-- ================= SPLASH ================= -->
+
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-logo">APR</div>
+    <div class="splash-line"></div>
+    <div class="splash-name">Aritra Paul Raktim</div>
+    <div class="splash-sub">SSC NOTES</div>
+    <div class="loader"></div>
+  </div>
+</div>
+
+<div id="app">
+
+<!-- ================= HOME ================= -->
+
+<section id="page-home" class="page active">
+
+  <header class="header home-header">
+    <div class="header-content">
+
+      <div class="header-row">
+        <div>
+          <div class="title">📚 SSC NOTES</div>
+          <div class="subtitle">Class 9–10 Study Notes</div>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          class="search"
+          type="text"
+          placeholder="🔍  Search Notes..."
+          oninput="searchSubjects()"
+        >
+      </div>
+
+    </div>
+  </header>
+
+  <main class="content">
+
+    <div class="section-title">📌 আবশ্যিক বিষয়</div>
+
+    <div class="cards">
+
+      <div class="card theme-bangla" onclick="openPage('bangla')">
+        <div class="icon">📘</div>
+        <div class="card-info">
+          <div class="card-title">বাংলা</div>
+          <div class="card-desc">বাংলা ১ম পত্র • বাংলা ২য় পত্র</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-english" onclick="openPage('english')">
+        <div class="icon">📗</div>
+        <div class="card-info">
+          <div class="card-title">ইংরেজি</div>
+          <div class="card-desc">English 1st • English 2nd Paper</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-math" onclick="showComingSoon('গণিত')">
+        <div class="icon">➗</div>
+        <div class="card-info">
+          <div class="card-title">গণিত</div>
+          <div class="card-desc">Mathematics Notes & Solutions</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-ict" onclick="showComingSoon('তথ্য ও যোগাযোগ প্রযুক্তি')">
+        <div class="icon">💻</div>
+        <div class="card-info">
+          <div class="card-title">তথ্য ও যোগাযোগ প্রযুক্তি</div>
+          <div class="card-desc">ICT Chapter-wise Notes</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-religion" onclick="openPage('religion')">
+        <div class="icon">🛕</div>
+        <div class="card-info">
+          <div class="card-title">ধর্ম ও নৈতিক শিক্ষা</div>
+          <div class="card-desc">ধর্মভিত্তিক নোট</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+    </div>
+
+    <div class="section-title">🔬 বিভাগ নির্বাচন</div>
+
+    <div class="cards">
+
+      <div class="card theme-science" onclick="openPage('science')">
+        <div class="icon">🔬</div>
+        <div class="card-info">
+          <div class="card-title">বিজ্ঞান বিভাগ</div>
+          <div class="card-desc">Physics • Chemistry • Biology • Higher Math</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-business" onclick="openPage('business')">
+        <div class="icon">💼</div>
+        <div class="card-info">
+          <div class="card-title">ব্যবসায় শিক্ষা</div>
+          <div class="card-desc">Accounting • Finance • Business</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card theme-humanities" onclick="openPage('humanities')">
+        <div class="icon">🎓</div>
+        <div class="card-info">
+          <div class="card-title">মানবিক বিভাগ</div>
+          <div class="card-desc">History • Geography • Civics • Economics</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+    </div>
+
+    <div class="section-title">📚 অন্যান্য বিষয়</div>
+
+    <div class="cards">
+
+      <div class="card" style="--theme:#059669" onclick="showComingSoon('শারীরিক শিক্ষা')">
+        <div class="icon">🏃</div>
+        <div class="card-info">
+          <div class="card-title">শারীরিক শিক্ষা</div>
+          <div class="card-desc">Health & Sports</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card" style="--theme:#d97706" onclick="showComingSoon('ক্যারিয়ার শিক্ষা')">
+        <div class="icon">🎯</div>
+        <div class="card-info">
+          <div class="card-title">ক্যারিয়ার শিক্ষা</div>
+          <div class="card-desc">Career Guidelines & Notes</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card" style="--theme:#92400e" onclick="showComingSoon('গার্হস্থ্য বিজ্ঞান')">
+        <div class="icon">🏠</div>
+        <div class="card-info">
+          <div class="card-title">গার্হস্থ্য বিজ্ঞান</div>
+          <div class="card-desc">Home Science</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="card" style="--theme:#db2777" onclick="showComingSoon('চারু ও কারুকলা')">
+        <div class="icon">🎨</div>
+        <div class="card-info">
+          <div class="card-title">চারু ও কারুকলা</div>
+          <div class="card-desc">Arts & Culture</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="footer">
+    © APR • Aritra Paul Raktim • SSC Notes
   </div>
 
-  <div id="app-container">
+</section>
 
-    <!-- ================= 2. HOME PAGE ================= -->
-    <div id="page-home" class="page active">
-      <div class="app-header">
-        <div class="header-nav">
-          <div class="header-title-container">
-            <div class="header-title">📚 SSC NOTES</div>
-            <div class="header-subtitle">Class 9–10 Study Notes</div>
-          </div>
-        </div>
-        <div class="search-container">
-          <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Notes..." oninput="searchSubjects()">
-        </div>
-      </div>
 
-      <!-- 📌 আবশ্যিক বিষয় -->
-      <div class="section-group">
-        <div class="section-header">📌 আবশ্যিক বিষয়</div>
-        <div class="card-grid">
-          <div class="nav-card" onclick="openPage('bangla')">
-            <div class="card-content">
-              <div class="card-icon">📘</div>
-              <div class="card-info">
-                <div class="card-title">বাংলা</div>
-                <div class="card-desc">বাংলা ১ম পত্র • বাংলা ২য় পত্র</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
+<!-- ================= BANGLA ================= -->
 
-          <div class="nav-card" onclick="openPage('english')">
-            <div class="card-content">
-              <div class="card-icon">📗</div>
-              <div class="card-info">
-                <div class="card-title">ইংরেজি</div>
-                <div class="card-desc">ইংরেজি ১ম পত্র • ইংরেজি ২য় পত্র</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
+<section id="page-bangla" class="page">
 
-          <div class="nav-card" onclick="showComingSoon('গণিত')">
-            <div class="card-content">
-              <div class="card-icon">➗</div>
-              <div class="card-info">
-                <div class="card-title">গণিত</div>
-                <div class="card-desc">সাধারণ গণিত নোট ও সমাধান</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('তথ্য ও যোগাযোগ প্রযুক্তি')">
-            <div class="card-content">
-              <div class="card-icon">💻</div>
-              <div class="card-info">
-                <div class="card-title">তথ্য ও যোগাযোগ প্রযুক্তি</div>
-                <div class="card-desc">ICT অধ্যায়ভিত্তিক নোট</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="openPage('religion')">
-            <div class="card-content">
-              <div class="card-icon">🛕</div>
-              <div class="card-info">
-                <div class="card-title">ধর্ম ও নৈতিক শিক্ষা</div>
-                <div class="card-desc">সকল ধর্মের বিষয়সমূহ</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🔬 বিভাগ নির্বাচন -->
-      <div class="section-group">
-        <div class="section-header">🔬 বিভাগ নির্বাচন</div>
-        <div class="card-grid">
-          <div class="nav-card" onclick="openPage('science')">
-            <div class="card-content">
-              <div class="card-icon">🔬</div>
-              <div class="card-info">
-                <div class="card-title">বিজ্ঞান বিভাগ</div>
-                <div class="card-desc">পদার্থ, রসায়ন, জীববিজ্ঞান, উচ্চতর গণিত</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="openPage('business')">
-            <div class="card-content">
-              <div class="card-icon">💼</div>
-              <div class="card-info">
-                <div class="card-title">ব্যবসায় শিক্ষা</div>
-                <div class="card-desc">হিসাববিজ্ঞান, ব্যবসায় উদ্যোগ, ফিন্যান্স</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="openPage('humanities')">
-            <div class="card-content">
-              <div class="card-icon">🎓</div>
-              <div class="card-info">
-                <div class="card-title">মানবিক বিভাগ</div>
-                <div class="card-desc">ইতিহাস, ভূগোল, পৌরনীতি, অর্থনীতি</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 📚 অন্যান্য বিষয় -->
-      <div class="section-group">
-        <div class="section-header">📚 অন্যান্য বিষয়</div>
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('শারীরিক শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">🏃</div>
-              <div class="card-info">
-                <div class="card-title">শারীরিক শিক্ষা</div>
-                <div class="card-desc">স্বাস্থ্যবিজ্ঞান ও খেলাধুলা</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon(' ক্যারিয়ার শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">🎯</div>
-              <div class="card-info">
-                <div class="card-title"> ক্যারিয়ার শিক্ষা</div>
-                <div class="card-desc"> ক্যারিয়ার গাইডলাইন ও নোট</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('গার্হস্থ্য বিজ্ঞান')">
-            <div class="card-content">
-              <div class="card-icon">🏠</div>
-              <div class="card-info">
-                <div class="card-title">গার্হস্থ্য বিজ্ঞান</div>
-                <div class="card-desc">গৃহ ব্যবস্থাপনা ও পরিবার</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('চারু ও কারুকলা')">
-            <div class="card-content">
-              <div class="card-icon">🎨</div>
-              <div class="card-info">
-                <div class="card-title">চারু ও কারুকলা</div>
-                <div class="card-desc">শিল্পকলা ও সংস্কৃতি</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="app-footer">
-        © APR Aritra Paul Raktim • SSC Notes
+<header class="header subject-header bangla-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📘 বাংলা</div>
+        <div class="subtitle">বাংলা বিষয়ের নোট</div>
       </div>
     </div>
+  </div>
+</header>
 
-    <!-- ================= 3. BANGLA PAGE ================= -->
-    <div id="page-bangla" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📘 বাংলা</div>
-            <div class="header-subtitle">বাংলা বিষয়ের নোট</div>
-          </div>
-        </div>
-      </div>
+<main class="content">
+<div class="cards">
 
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="openPage('bangla1st')">
-            <div class="card-content">
-              <div class="card-icon">📖</div>
-              <div class="card-info">
-                <div class="card-title">বাংলা ১ম পত্র</div>
-                <div class="card-desc">বাংলা সাহিত্য • বাংলা সহপাঠ</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('বাংলা ২য় পত্র')">
-            <div class="card-content">
-              <div class="card-icon">📝</div>
-              <div class="card-info">
-                <div class="card-title">বাংলা ২য় পত্র</div>
-                <div class="card-desc">ব্যাকরণ ও নির্মিতি</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
+  <div class="card theme-bangla" onclick="openPage('bangla1st')">
+    <div class="icon">📖</div>
+    <div class="card-info">
+      <div class="card-title">বাংলা ১ম পত্র</div>
+      <div class="card-desc">বাংলা সাহিত্য • বাংলা সহপাঠ</div>
     </div>
-
-    <!-- ================= 4. BANGLA 1ST PAGE ================= -->
-    <div id="page-bangla1st" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📖 বাংলা ১ম পত্র</div>
-            <div class="header-subtitle">বাংলা সাহিত্য ও সহপাঠ</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="openPage('banglaSahitya')">
-            <div class="card-content">
-              <div class="card-icon">📚</div>
-              <div class="card-info">
-                <div class="card-title">বাংলা সাহিত্য</div>
-                <div class="card-desc">গদ্য ও পদ্য</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('বাংলা সহপাঠ')">
-            <div class="card-content">
-              <div class="card-icon">📕</div>
-              <div class="card-info">
-                <div class="card-title">বাংলা সহপাঠ</div>
-                <div class="card-desc">উপন্যাস ও নাটক</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 5. BANGLA SAHITYA PAGE ================= -->
-    <div id="page-banglaSahitya" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📚 বাংলা সাহিত্য</div>
-            <div class="header-subtitle">গদ্য ও পদ্য</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <!-- গদ্য Card -->
-          <div class="nav-card" onclick="openPage('goddo')">
-            <div class="card-content">
-              <div class="card-icon">📘</div>
-              <div class="card-info">
-                <div class="card-title">গদ্য</div>
-                <div class="card-desc">বাংলা সাহিত্যের গদ্য অংশ</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <!-- পদ্য Card -->
-          <div class="nav-card" onclick="openPage('poddo')">
-            <div class="card-content">
-              <div class="card-icon">📝</div>
-              <div class="card-info">
-                <div class="card-title">পদ্য</div>
-                <div class="card-desc">বাংলা সাহিত্যের পদ্য অংশ</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 6. GODDO PAGE ================= -->
-    <div id="page-goddo" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📘 গদ্য</div>
-            <div class="header-subtitle">বাংলা সাহিত্যের গদ্য অংশ</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="coming-soon-box">
-        <div class="cs-icon">📚</div>
-        <div class="cs-title">গদ্যের নোট শীঘ্রই আসছে</div>
-        <div class="cs-desc">এই অংশের নোট এখনো আপলোড করা হয়নি। খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। 💙</div>
-      </div>
-    </div>
-
-    <!-- ================= 7. PODDO PAGE ================= -->
-    <div id="page-poddo" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📝 পদ্য</div>
-            <div class="header-subtitle">বাংলা সাহিত্যের পদ্য অংশ</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="coming-soon-box">
-        <div class="cs-icon">📖</div>
-        <div class="cs-title">পদ্যের নোট শীঘ্রই আসছে</div>
-        <div class="cs-desc">এই অংশের নোট এখনো আপলোড করা হয়নি। খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। 💙</div>
-      </div>
-    </div>
-
-    <!-- ================= 8. ENGLISH PAGE ================= -->
-    <div id="page-english" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">📗 ইংরেজি</div>
-            <div class="header-subtitle">English</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('ইংরেজি ১ম পত্র')">
-            <div class="card-content">
-              <div class="card-icon">📖</div>
-              <div class="card-info">
-                <div class="card-title">ইংরেজি ১ম পত্র</div>
-                <div class="card-desc">English 1st Paper</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('ইংরেজি ২য় পত্র')">
-            <div class="card-content">
-              <div class="card-icon">📝</div>
-              <div class="card-info">
-                <div class="card-title">ইংরেজি ২য় পত্র</div>
-                <div class="card-desc">English 2nd Paper</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 9. RELIGION PAGE ================= -->
-    <div id="page-religion" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">🛕 ধর্ম ও নৈতিক শিক্ষা</div>
-            <div class="header-subtitle">ধর্মীয় শিক্ষা ও নৈতিকতা</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('ইসলাম শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">☪️</div>
-              <div class="card-info">
-                <div class="card-title">ইসলাম শিক্ষা</div>
-                <div class="card-desc">ইসলাম ও নৈতিক শিক্ষা</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('হিন্দুধর্ম শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">🕉️</div>
-              <div class="card-info">
-                <div class="card-title">হিন্দুধর্ম শিক্ষা</div>
-                <div class="card-desc">হিন্দুধর্ম ও নৈতিক শিক্ষা</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('বৌদ্ধধর্ম শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">☸️</div>
-              <div class="card-info">
-                <div class="card-title">বৌদ্ধধর্ম শিক্ষা</div>
-                <div class="card-desc">বৌদ্ধধর্ম ও নৈতিক শিক্ষা</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('খ্রিষ্টধর্ম ও নৈতিক শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">✝️</div>
-              <div class="card-info">
-                <div class="card-title">খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</div>
-                <div class="card-desc">খ্রিষ্টধর্মীয় শিক্ষা</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 10. SCIENCE PAGE ================= -->
-    <div id="page-science" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">🔬 বিজ্ঞান বিভাগ</div>
-            <div class="header-subtitle">Science Group</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('পদার্থবিজ্ঞান')">
-            <div class="card-content">
-              <div class="card-icon">🧲</div>
-              <div class="card-info">
-                <div class="card-title">পদার্থবিজ্ঞান</div>
-                <div class="card-desc">Physics Notes & CQ</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('রসায়ন')">
-            <div class="card-content">
-              <div class="card-icon">🧪</div>
-              <div class="card-info">
-                <div class="card-title">রসায়ন</div>
-                <div class="card-desc">Chemistry Notes & Formula</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('জীববিজ্ঞান')">
-            <div class="card-content">
-              <div class="card-icon">🧬</div>
-              <div class="card-info">
-                <div class="card-title">জীববিজ্ঞান</div>
-                <div class="card-desc">Biology Notes & Diagrams</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('উচ্চতর গণিত')">
-            <div class="card-content">
-              <div class="card-icon">📐</div>
-              <div class="card-info">
-                <div class="card-title">উচ্চতর গণিত</div>
-                <div class="card-desc">Higher Math Solutions</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 11. BUSINESS PAGE ================= -->
-    <div id="page-business" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">💼 ব্যবসায় শিক্ষা</div>
-            <div class="header-subtitle">Business Studies Group</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('হিসাববিজ্ঞান')">
-            <div class="card-content">
-              <div class="card-icon">📊</div>
-              <div class="card-info">
-                <div class="card-title">হিসাববিজ্ঞান</div>
-                <div class="card-desc">Accounting Solutions</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('ব্যবসায় উদ্যোগ')">
-            <div class="card-content">
-              <div class="card-icon">💼</div>
-              <div class="card-info">
-                <div class="card-title">ব্যবসায় উদ্যোগ</div>
-                <div class="card-desc">Entrepreneurship Notes</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('ফিন্যান্স ও ব্যাংকিং')">
-            <div class="card-content">
-              <div class="card-icon">🏦</div>
-              <div class="card-info">
-                <div class="card-title">ফিন্যান্স ও ব্যাংকিং</div>
-                <div class="card-desc">Finance & Banking</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('কৃষি শিক্ষা')">
-            <div class="card-content">
-              <div class="card-icon">🌾</div>
-              <div class="card-info">
-                <div class="card-title">কৃষি শিক্ষা</div>
-                <div class="card-desc">Agriculture Studies</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 12. HUMANITIES PAGE ================= -->
-    <div id="page-humanities" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBack()">←</button>
-          <div class="header-title-container">
-            <div class="header-title">🎓 মানবিক বিভাগ</div>
-            <div class="header-subtitle">Humanities Group</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 15px;">
-        <div class="card-grid">
-          <div class="nav-card" onclick="showComingSoon('অর্থনীতি')">
-            <div class="card-content">
-              <div class="card-icon">💰</div>
-              <div class="card-info">
-                <div class="card-title">অর্থনীতি</div>
-                <div class="card-desc">Economics Notes</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('পৌরনীতি ও নাগরিকতা')">
-            <div class="card-content">
-              <div class="card-icon">⚖️</div>
-              <div class="card-info">
-                <div class="card-title">পৌরনীতি ও নাগরিকতা</div>
-                <div class="card-desc">Civics & Citizenship</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('ভূগোল ও পরিবেশ')">
-            <div class="card-content">
-              <div class="card-icon">🌎</div>
-              <div class="card-info">
-                <div class="card-title">ভূগোল ও পরিবেশ</div>
-                <div class="card-desc">Geography & Environment</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-
-          <div class="nav-card" onclick="showComingSoon('বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা')">
-            <div class="card-content">
-              <div class="card-icon">📜</div>
-              <div class="card-info">
-                <div class="card-title">বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা</div>
-                <div class="card-desc">History Notes</div>
-              </div>
-            </div>
-            <div class="card-arrow">❯</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= 13. COMMON COMING SOON PAGE ================= -->
-    <div id="page-comingSoon" class="page">
-      <div class="app-header">
-        <div class="header-nav">
-          <button class="back-btn" onclick="goBackFromComingSoon()">←</button>
-          <div class="header-title-container">
-            <div class="header-title" id="coming-header-title">📚 বিষয়</div>
-            <div class="header-subtitle">স্টাডি নোটস</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="coming-soon-box">
-        <div class="cs-icon">📘</div>
-        <div class="cs-title">নোট শীঘ্রই আসছে</div>
-        <div class="cs-desc">
-          <strong id="coming-subject-name" style="color: #1e293b;"></strong> বিষয়ের নোট এখনো আপলোড করা হয়নি। খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। <span class="cs-heart">💙</span>
-        </div>
-      </div>
-    </div>
-
+    <div class="arrow">›</div>
   </div>
 
-  <!-- JavaScript Implementation -->
-  <script>
-    // Global Navigation Stack to manage Back Buttons properly
-    var navigationStack = ['home'];
+  <div class="card theme-bangla" onclick="showComingSoon('বাংলা ২য় পত্র')">
+    <div class="icon">📝</div>
+    <div class="card-info">
+      <div class="card-title">বাংলা ২য় পত্র</div>
+      <div class="card-desc">ব্যাকরণ ও নির্মিতি</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
 
-    // Function to open any page dynamically
-    function openPage(pageId, pushToHistory) {
-      if (pushToHistory === undefined) {
-        pushToHistory = true;
-      }
+</div>
+</main>
+</section>
 
-      var pages = document.querySelectorAll('.page');
-      for (var i = 0; i < pages.length; i++) {
-        pages[i].classList.remove('active');
-      }
 
-      var targetPage = document.getElementById('page-' + pageId);
-      if (targetPage) {
-        targetPage.classList.add('active');
-        if (pushToHistory && navigationStack[navigationStack.length - 1] !== pageId) {
-          navigationStack.push(pageId);
-        }
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+<!-- ================= BANGLA 1ST ================= -->
+
+<section id="page-bangla1st" class="page">
+
+<header class="header subject-header bangla-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📖 বাংলা ১ম পত্র</div>
+        <div class="subtitle">বাংলা সাহিত্য ও সহপাঠ</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card theme-bangla" onclick="openPage('sahitya')">
+    <div class="icon">📚</div>
+    <div class="card-info">
+      <div class="card-title">বাংলা সাহিত্য</div>
+      <div class="card-desc">গদ্য ও পদ্য</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-bangla" onclick="showComingSoon('বাংলা সহপাঠ')">
+    <div class="icon">📕</div>
+    <div class="card-info">
+      <div class="card-title">বাংলা সহপাঠ</div>
+      <div class="card-desc">উপন্যাস ও নাটক</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= SAHITYA ================= -->
+
+<section id="page-sahitya" class="page">
+
+<header class="header subject-header bangla-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📚 বাংলা সাহিত্য</div>
+        <div class="subtitle">গদ্য ও পদ্য</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card theme-bangla" onclick="openPage('goddo')">
+    <div class="icon">📘</div>
+    <div class="card-info">
+      <div class="card-title">গদ্য</div>
+      <div class="card-desc">বাংলা সাহিত্যের গদ্য অংশ</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-bangla" onclick="openPage('poddo')">
+    <div class="icon">📝</div>
+    <div class="card-info">
+      <div class="card-title">পদ্য</div>
+      <div class="card-desc">বাংলা সাহিত্যের পদ্য অংশ</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= GODDO ================= -->
+
+<section id="page-goddo" class="page">
+
+<header class="header subject-header bangla-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📘 গদ্য</div>
+        <div class="subtitle">বাংলা সাহিত্যের গদ্য</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="coming">
+  <div class="coming-icon">📚</div>
+  <h2>গদ্যের নোট শীঘ্রই আসছে</h2>
+  <p>
+    এই অংশের নোট এখনো আপলোড করা হয়নি।<br>
+    খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। <span class="heart">💙</span>
+  </p>
+</div>
+
+</section>
+
+
+<!-- ================= PODDO ================= -->
+
+<section id="page-poddo" class="page">
+
+<header class="header subject-header bangla-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📝 পদ্য</div>
+        <div class="subtitle">বাংলা সাহিত্যের পদ্য</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="coming">
+  <div class="coming-icon">📖</div>
+  <h2>পদ্যের নোট শীঘ্রই আসছে</h2>
+  <p>
+    এই অংশের নোট এখনো আপলোড করা হয়নি।<br>
+    খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। <span class="heart">💙</span>
+  </p>
+</div>
+
+</section>
+
+
+<!-- ================= ENGLISH ================= -->
+
+<section id="page-english" class="page">
+
+<header class="header subject-header english-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">📗 ইংরেজি</div>
+        <div class="subtitle">English</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card theme-english" onclick="showComingSoon('ইংরেজি ১ম পত্র')">
+    <div class="icon">📖</div>
+    <div class="card-info">
+      <div class="card-title">ইংরেজি ১ম পত্র</div>
+      <div class="card-desc">English First Paper</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-english" onclick="showComingSoon('ইংরেজি ২য় পত্র')">
+    <div class="icon">📝</div>
+    <div class="card-info">
+      <div class="card-title">ইংরেজি ২য় পত্র</div>
+      <div class="card-desc">English Second Paper</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= RELIGION ================= -->
+
+<section id="page-religion" class="page">
+
+<header class="header subject-header islam-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">🛕 ধর্ম ও নৈতিক শিক্ষা</div>
+        <div class="subtitle">ধর্মভিত্তিক নোট</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card theme-islam" onclick="showComingSoon('ইসলাম শিক্ষা')">
+    <div class="icon">☪️</div>
+    <div class="card-info">
+      <div class="card-title">ইসলাম শিক্ষা</div>
+      <div class="card-desc">ইসলাম ও নৈতিক শিক্ষা</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-hindu" onclick="showComingSoon('হিন্দুধর্ম শিক্ষা')">
+    <div class="icon">🕉️</div>
+    <div class="card-info">
+      <div class="card-title">হিন্দুধর্ম শিক্ষা</div>
+      <div class="card-desc">হিন্দুধর্ম ও নৈতিক শিক্ষা</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-buddha" onclick="showComingSoon('বৌদ্ধধর্ম শিক্ষা')">
+    <div class="icon">☸️</div>
+    <div class="card-info">
+      <div class="card-title">বৌদ্ধধর্ম শিক্ষা</div>
+      <div class="card-desc">বৌদ্ধধর্ম ও নৈতিক শিক্ষা</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-christian" onclick="showComingSoon('খ্রিষ্টধর্ম ও নৈতিক শিক্ষা')">
+    <div class="icon">✝️</div>
+    <div class="card-info">
+      <div class="card-title">খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</div>
+      <div class="card-desc">খ্রিষ্টধর্মীয় শিক্ষা</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= SCIENCE ================= -->
+
+<section id="page-science" class="page">
+
+<header class="header subject-header physics-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">🔬 বিজ্ঞান বিভাগ</div>
+        <div class="subtitle">Science Group</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card theme-physics" onclick="showComingSoon('পদার্থবিজ্ঞান')">
+    <div class="icon">🧲</div>
+    <div class="card-info">
+      <div class="card-title">পদার্থবিজ্ঞান</div>
+      <div class="card-desc">Physics Notes & CQ</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-chemistry" onclick="showComingSoon('রসায়ন')">
+    <div class="icon">🧪</div>
+    <div class="card-info">
+      <div class="card-title">রসায়ন</div>
+      <div class="card-desc">Chemistry Notes & Formula</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-biology" onclick="showComingSoon('জীববিজ্ঞান')">
+    <div class="icon">🧬</div>
+    <div class="card-info">
+      <div class="card-title">জীববিজ্ঞান</div>
+      <div class="card-desc">Biology Notes & Diagrams</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card theme-hmath" onclick="showComingSoon('উচ্চতর গণিত')">
+    <div class="icon">📐</div>
+    <div class="card-info">
+      <div class="card-title">উচ্চতর গণিত</div>
+      <div class="card-desc">Higher Math Solutions</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= BUSINESS ================= -->
+
+<section id="page-business" class="page">
+
+<header class="header subject-header" style="--header1:#451a03;--header2:#b45309">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">💼 ব্যবসায় শিক্ষা</div>
+        <div class="subtitle">Business Studies</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card" style="--theme:#b45309" onclick="showComingSoon('হিসাববিজ্ঞান')">
+    <div class="icon">📊</div>
+    <div class="card-info">
+      <div class="card-title">হিসাববিজ্ঞান</div>
+      <div class="card-desc">Accounting Solutions</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#92400e" onclick="showComingSoon('ব্যবসায় উদ্যোগ')">
+    <div class="icon">💼</div>
+    <div class="card-info">
+      <div class="card-title">ব্যবসায় উদ্যোগ</div>
+      <div class="card-desc">Entrepreneurship Notes</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#0369a1" onclick="showComingSoon('ফিন্যান্স ও ব্যাংকিং')">
+    <div class="icon">🏦</div>
+    <div class="card-info">
+      <div class="card-title">ফিন্যান্স ও ব্যাংকিং</div>
+      <div class="card-desc">Finance & Banking</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#15803d" onclick="showComingSoon('কৃষি শিক্ষা')">
+    <div class="icon">🌾</div>
+    <div class="card-info">
+      <div class="card-title">কৃষি শিক্ষা</div>
+      <div class="card-desc">Agriculture Studies</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= HUMANITIES ================= -->
+
+<section id="page-humanities" class="page">
+
+<header class="header subject-header" style="--header1:#4c0519;--header2:#9f1239">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title">🎓 মানবিক বিভাগ</div>
+        <div class="subtitle">Humanities</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+<div class="cards">
+
+  <div class="card" style="--theme:#b45309" onclick="showComingSoon('অর্থনীতি')">
+    <div class="icon">💰</div>
+    <div class="card-info">
+      <div class="card-title">অর্থনীতি</div>
+      <div class="card-desc">Economics Notes</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#9f1239" onclick="showComingSoon('পৌরনীতি ও নাগরিকতা')">
+    <div class="icon">⚖️</div>
+    <div class="card-info">
+      <div class="card-title">পৌরনীতি ও নাগরিকতা</div>
+      <div class="card-desc">Civics & Citizenship</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#0284c7" onclick="showComingSoon('ভূগোল ও পরিবেশ')">
+    <div class="icon">🌎</div>
+    <div class="card-info">
+      <div class="card-title">ভূগোল ও পরিবেশ</div>
+      <div class="card-desc">Geography & Environment</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="card" style="--theme:#7c2d12" onclick="showComingSoon('বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা')">
+    <div class="icon">📜</div>
+    <div class="card-info">
+      <div class="card-title">বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা</div>
+      <div class="card-desc">History Notes</div>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+</div>
+</main>
+</section>
+
+
+<!-- ================= COMING SOON ================= -->
+
+<section id="page-comingSoon" class="page">
+
+<header class="header subject-header english-head">
+  <div class="header-content">
+    <div class="header-row">
+      <button class="back" onclick="goBack()">←</button>
+      <div>
+        <div class="title" id="comingTitle">📚 বিষয়</div>
+        <div class="subtitle">APR SSC Notes</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="coming">
+
+  <div class="coming-icon">📚</div>
+
+  <h2>নোট শীঘ্রই আসছে</h2>
+
+  <p>
+    <strong id="comingSubject"></strong> বিষয়ের নোট এখনো আপলোড করা হয়নি।<br>
+    খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। <span class="heart">💙</span>
+  </p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+/* ================= NAVIGATION ================= */
+
+var navigationStack = ["home"];
+
+function openPage(pageId, addHistory) {
+
+  if (addHistory === undefined) {
+    addHistory = true;
+  }
+
+  var pages = document.querySelectorAll(".page");
+
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove("active");
+  }
+
+  var target = document.getElementById("page-" + pageId);
+
+  if (!target) {
+    return;
+  }
+
+  target.classList.add("active");
+
+  if (
+    addHistory &&
+    navigationStack[navigationStack.length - 1] !== pageId
+  ) {
+    navigationStack.push(pageId);
+  }
+
+  window.scrollTo(0,0);
+}
+
+
+/* ================= BACK ================= */
+
+function goBack() {
+
+  if (navigationStack.length <= 1) {
+    return;
+  }
+
+  navigationStack.pop();
+
+  var previous =
+    navigationStack[navigationStack.length - 1];
+
+  openPage(previous, false);
+}
+
+
+/* ================= COMING SOON ================= */
+
+function showComingSoon(subjectName) {
+
+  var title =
+    document.getElementById("comingTitle");
+
+  var subject =
+    document.getElementById("comingSubject");
+
+  if (title) {
+    title.innerText = "📚 " + subjectName;
+  }
+
+  if (subject) {
+    subject.innerText = subjectName;
+  }
+
+  openPage("comingSoon");
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchSubjects() {
+
+  var input =
+    document.getElementById("searchInput");
+
+  if (!input) {
+    return;
+  }
+
+  var value =
+    input.value.toLowerCase().trim();
+
+  var home =
+    document.getElementById("page-home");
+
+  if (!home) {
+    return;
+  }
+
+  var cards =
+    home.querySelectorAll(".card");
+
+  for (var i = 0; i < cards.length; i++) {
+
+    var text =
+      cards[i].innerText.toLowerCase();
+
+    if (text.indexOf(value) !== -1) {
+      cards[i].style.display = "flex";
+    } else {
+      cards[i].style.display = "none";
     }
 
-    // Dynamic Back Navigation
-    function goBack() {
-      if (navigationStack.length > 1) {
-        navigationStack.pop();
-        var previousPage = navigationStack[navigationStack.length - 1];
-        openPage(previousPage, false);
-      }
+  }
+}
+
+
+/* ================= SPLASH ================= */
+
+window.addEventListener("load", function() {
+
+  setTimeout(function() {
+
+    var splash =
+      document.getElementById("splash");
+
+    if (!splash) {
+      return;
     }
 
-    // Show Common Coming Soon Screen
-    function showComingSoon(subjectName) {
-      var headerElem = document.getElementById('coming-header-title');
-      var nameElem = document.getElementById('coming-subject-name');
+    splash.style.opacity = "0";
+    splash.style.visibility = "hidden";
 
-      if (headerElem) {
-        headerElem.innerText = '📚 ' + subjectName;
-      }
-      if (nameElem) {
-        nameElem.innerText = subjectName;
-      }
+    setTimeout(function() {
+      splash.style.display = "none";
+    },700);
 
-      openPage('comingSoon');
-    }
+  },2000);
 
-    function goBackFromComingSoon() {
-      goBack();
-    }
+});
+</script>
 
-    // Dynamic Live Search Functionality for Home Page
-    function searchSubjects() {
-      var input = document.getElementById('searchInput').value.toLowerCase().trim();
-      var homePage = document.getElementById('page-home');
-      var cards = homePage.querySelectorAll('.nav-card');
-      var sections = homePage.querySelectorAll('.section-group');
-
-      for (var i = 0; i < cards.length; i++) {
-        var cardText = cards[i].innerText.toLowerCase();
-        if (cardText.indexOf(input) > -1) {
-          cards[i].classList.remove('hidden');
-        } else {
-          cards[i].classList.add('hidden');
-        }
-      }
-
-      // Hide section title if all child cards are hidden
-      for (var j = 0; j < sections.length; j++) {
-        var visibleCards = sections[j].querySelectorAll('.nav-card:not(.hidden)');
-        var secHeader = sections[j].querySelector('.section-header');
-        if (visibleCards.length === 0 && input !== '') {
-          if (secHeader) secHeader.classList.add('hidden');
-        } else {
-          if (secHeader) secHeader.classList.remove('hidden');
-        }
-      }
-    }
-
-    // Splash Screen Timer (Auto Dismiss after 2 seconds)
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        var splash = document.getElementById('splash-screen');
-        if (splash) {
-          splash.style.opacity = '0';
-          splash.style.visibility = 'hidden';
-          setTimeout(function() {
-            splash.style.display = 'none';
-          }, 500);
-        }
-      }, 2000);
-    });
-
-    // Safe Service Worker Registration
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('./sw.js').catch(function() {
-          // Fail silently if no SW file exists
-        });
-      });
-    }
-  </script>
 </body>
 </html>
