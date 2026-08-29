@@ -1,16 +1,16 @@
 {
-  "name": "SSC Notes",
-  "short_name": "SSC Notes",
+  "name": "NoteMate SSC by APR",
+  "short_name": "NoteMate SSC",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f1f5f9",
-  "theme_color": "#172554",
-  "description": "Class 9-10 SSC Notes",
+  "background_color": "#07111f",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "./icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
