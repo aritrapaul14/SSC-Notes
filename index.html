@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SSC Notes</title>
+<title>APR SSC Notes</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#172554">
 
 <style>
+
+/* ================================
+        BASIC
+================================ */
+
 * {
     box-sizing: border-box;
 }
@@ -14,73 +24,8 @@
 body {
     margin: 0;
     font-family: Arial, "Noto Sans Bengali", sans-serif;
-    background: #f4f7fb;
+    background: #f1f5f9;
     color: #172033;
-}
-
-header {
-    background: #172554;
-    color: white;
-    text-align: center;
-    padding: 32px 15px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 32px;
-}
-
-header p {
-    margin: 8px 0 0;
-    font-size: 15px;
-}
-
-.container {
-    width: 92%;
-    max-width: 700px;
-    margin: 25px auto;
-}
-
-.search {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    outline: none;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
-}
-
-.section {
-    font-size: 21px;
-    font-weight: bold;
-    margin: 28px 0 14px;
-}
-
-.card {
-    background: white;
-    padding: 18px;
-    margin: 12px 0;
-    border-radius: 14px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.08);
-    cursor: pointer;
-    transition: .2s;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-}
-
-.card h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.card p {
-    margin: 6px 0 0;
-    color: #667085;
-    font-size: 14px;
 }
 
 .page {
@@ -91,718 +36,354 @@ header p {
     display: block;
 }
 
-.back {
-    background: #172554;
+
+/* ================================
+        HEADER
+================================ */
+
+header {
+    background: linear-gradient(135deg, #172554, #1e3a8a);
     color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-footer {
     text-align: center;
-    padding: 30px;
-    color: #777;
-    font-size: 13px;
-}
-  /* =================================
-        SSC NOTES NEW THEME
-================================= */
-
-body {
-    background: #f1f5f9;
-    color: #172033;
-}
-
-
-/* HEADER */
-
-header {
-    background: linear-gradient(135deg, #172554, #1e3a8a);
     padding: 38px 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-}
-
-header h1 {
-    font-size: 34px;
-    letter-spacing: 1px;
-}
-
-header p {
-    opacity: 0.9;
-}
-
-
-/* MAIN CONTAINER */
-
-.container {
-    max-width: 720px;
-}
-
-
-/* SEARCH BAR */
-
-.search {
-    background: white;
-    border: 2px solid transparent;
-    padding: 16px 18px;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-}
-
-.search:focus {
-    border-color: #2563eb;
-}
-
-
-/* SECTION TITLE */
-
-.section {
-    color: #172554;
-    font-size: 22px;
-    padding-left: 5px;
-    margin-top: 32px;
-}
-
-
-/* CARDS */
-
-.card {
-    position: relative;
-    border: 1px solid #e5e7eb;
-    border-radius: 17px;
-    padding: 20px;
-    margin: 14px 0;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-/* CLICK EFFECT */
-
-.card:active {
-    transform: scale(0.97);
-}
-
-
-/* HOVER */
-
-.card:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.10);
-}
-
-
-/* CARD TITLE */
-
-.card h3 {
-    color: #172554;
-    font-size: 18px;
-}
-
-
-/* CARD DESCRIPTION */
-
-.card p {
-    color: #64748b;
-}
-
-
-/* BACK BUTTON */
-
-.back {
-    background: linear-gradient(
-        135deg,
-        #172554,
-        #1e3a8a
-    );
-
-    padding: 13px 20px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.15);
-
-    transition: 0.2s;
-}
-
-.back:active {
-    transform: scale(0.95);
-}
-
-
-/* FOOTER */
-
-footer {
-    margin-top: 30px;
-    color: #64748b;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 480px) {
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    .section {
-        font-size: 20px;
-    }
-
-    .card {
-        padding: 18px;
-        border-radius: 15px;
-    }
-
-}
-  /* =================================
-        SSC NOTES NEW THEME
-================================= */
-
-body {
-    background: #f1f5f9;
-    color: #172033;
-}
-
-
-/* HEADER */
-
-header {
-    background: linear-gradient(135deg, #172554, #1e3a8a);
-    padding: 38px 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-}
-
-header h1 {
-    font-size: 34px;
-    letter-spacing: 1px;
-}
-
-header p {
-    opacity: 0.9;
-}
-
-
-/* MAIN CONTAINER */
-
-.container {
-    max-width: 720px;
-}
-
-
-/* SEARCH BAR */
-
-.search {
-    background: white;
-    border: 2px solid transparent;
-    padding: 16px 18px;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-}
-
-.search:focus {
-    border-color: #2563eb;
-}
-
-
-/* SECTION TITLE */
-
-.section {
-    color: #172554;
-    font-size: 22px;
-    padding-left: 5px;
-    margin-top: 32px;
-}
-
-
-/* CARDS */
-
-.card {
-    position: relative;
-    border: 1px solid #e5e7eb;
-    border-radius: 17px;
-    padding: 20px;
-    margin: 14px 0;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-/* CLICK EFFECT */
-
-.card:active {
-    transform: scale(0.97);
-}
-
-
-/* HOVER */
-
-.card:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.10);
-}
-
-
-/* CARD TITLE */
-
-.card h3 {
-    color: #172554;
-    font-size: 18px;
-}
-
-
-/* CARD DESCRIPTION */
-
-.card p {
-    color: #64748b;
-}
-
-
-/* BACK BUTTON */
-
-.back {
-    background: linear-gradient(
-        135deg,
-        #172554,
-        #1e3a8a
-    );
-
-    padding: 13px 20px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.15);
-
-    transition: 0.2s;
-}
-
-.back:active {
-    transform: scale(0.95);
-}
-
-
-/* FOOTER */
-
-footer {
-    margin-top: 30px;
-    color: #64748b;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 480px) {
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    .section {
-        font-size: 20px;
-    }
-
-    .card {
-        padding: 18px;
-        border-radius: 15px;
-    }
-
-}/* =================================
-        SSC NOTES NEW THEME
-================================= */
-
-body {
-    background: #f1f5f9;
-    color: #172033;
-}
-
-
-/* HEADER */
-
-header {
-    background: linear-gradient(135deg, #172554, #1e3a8a);
-    padding: 38px 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-}
-
-header h1 {
-    font-size: 34px;
-    letter-spacing: 1px;
-}
-
-header p {
-    opacity: 0.9;
-}
-
-
-/* MAIN CONTAINER */
-
-.container {
-    max-width: 720px;
-}
-
-
-/* SEARCH BAR */
-
-.search {
-    background: white;
-    border: 2px solid transparent;
-    padding: 16px 18px;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-}
-
-.search:focus {
-    border-color: #2563eb;
-}
-
-
-/* SECTION TITLE */
-
-.section {
-    color: #172554;
-    font-size: 22px;
-    padding-left: 5px;
-    margin-top: 32px;
-}
-
-
-/* CARDS */
-
-.card {
-    position: relative;
-    border: 1px solid #e5e7eb;
-    border-radius: 17px;
-    padding: 20px;
-    margin: 14px 0;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-/* CLICK EFFECT */
-
-.card:active {
-    transform: scale(0.97);
-}
-
-
-/* HOVER */
-
-.card:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.10);
-}
-
-
-/* CARD TITLE */
-
-.card h3 {
-    color: #172554;
-    font-size: 18px;
-}
-
-
-/* CARD DESCRIPTION */
-
-.card p {
-    color: #64748b;
-}
-
-
-/* BACK BUTTON */
-
-.back {
-    background: linear-gradient(
-        135deg,
-        #172554,
-        #1e3a8a
-    );
-
-    padding: 13px 20px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.15);
-
-    transition: 0.2s;
-}
-
-.back:active {
-    transform: scale(0.95);
-}
-
-
-/* FOOTER */
-
-footer {
-    margin-top: 30px;
-    color: #64748b;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 480px) {
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    .section {
-        font-size: 20px;
-    }
-
-    .card {
-        padding: 18px;
-        border-radius: 15px;
-    }
-
-}
-  /* ===== NEW SSC NOTES THEME ===== */
-
-body {
-    background: #eef3f8;
-}
-
-/* Header */
-header {
-    background: linear-gradient(135deg, #0f172a, #1d4ed8);
-    padding: 45px 20px;
     border-radius: 0 0 28px 28px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.12);
 }
 
 header h1 {
-    font-size: 36px;
+    margin: 0;
+    font-size: 32px;
     font-weight: 800;
 }
 
 header p {
-    font-size: 16px;
-    opacity: 0.85;
+    margin: 8px 0 0;
+    font-size: 15px;
+    opacity: .9;
 }
 
-/* Main area */
+
+/* ================================
+        CONTAINER
+================================ */
+
 .container {
-    width: 94%;
-    max-width: 680px;
-    margin: 22px auto;
+    width: 92%;
+    max-width: 700px;
+    margin: 24px auto;
 }
 
-/* Search */
+
+/* ================================
+        SEARCH
+================================ */
+
 .search {
+    width: 100%;
     height: 54px;
     padding: 0 20px;
-    border-radius: 27px;
-    background: white;
+    border-radius: 28px;
     border: 2px solid #dbe4f0;
+    outline: none;
+    background: white;
     font-size: 16px;
-    box-shadow: 0 6px 20px rgba(15,23,42,0.08);
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(15,23,42,.07);
 }
 
 .search:focus {
-    border-color: #3b82f6;
+    border-color: #2563eb;
 }
 
-/* Section headings */
+
+/* ================================
+        SECTION
+================================ */
+
 .section {
-    font-size: 20px;
+    margin: 28px 4px 12px;
+    font-size: 21px;
     font-weight: 800;
-    color: #0f172a;
-    margin: 30px 4px 12px;
+    color: #172554;
 }
 
-/* Cards */
+
+/* ================================
+        CARD
+================================ */
+
 .card {
-    min-height: 68px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    background: #ffffff;
-
+    width: 100%;
+    background: white;
     border: 1px solid #e2e8f0;
     border-radius: 18px;
-
-    padding: 18px 20px;
-    margin: 12px 0;
-
-    box-shadow: 0 5px 15px rgba(15,23,42,0.06);
-
-    transition: 0.2s;
+    padding: 19px 20px;
+    margin: 13px 0;
+    box-shadow: 0 5px 15px rgba(15,23,42,.06);
+    cursor: pointer;
+    transition: .2s;
 }
 
-/* Clickable cards */
-.card[onclick] {
-    border-left: 5px solid #2563eb;
-}
-
-/* Card click */
 .card:active {
-    transform: scale(0.97);
+    transform: scale(.97);
 }
 
-/* Card title */
 .card h3 {
-    color: #0f172a;
-    font-size: 17px;
     margin: 0;
+    color: #0f172a;
+    font-size: 18px;
 }
 
-/* Description */
 .card p {
+    margin: 7px 0 0;
     color: #64748b;
-    margin-top: 7px;
+    font-size: 14px;
 }
 
-/* Back button */
+
+/* ================================
+        BACK BUTTON
+================================ */
+
 .back {
-    border-radius: 14px;
-    background: #0f172a;
+    border: none;
+    background: #172554;
+    color: white;
     padding: 13px 20px;
-    box-shadow: 0 5px 12px rgba(15,23,42,0.15);
+    border-radius: 13px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 12px rgba(15,23,42,.15);
 }
 
-/* Footer */
-footer {
-    padding: 35px 10px;
+.back:active {
+    transform: scale(.95);
+}
+
+
+/* ================================
+        SPECIAL BUTTON
+        GODYO / PODDYO
+================================ */
+
+.choice-button {
+
+    width: 100%;
+
+    background: white;
+
+    border: 1px solid #dbe4f0;
+
+    border-left: 6px solid #2563eb;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin: 14px 0;
+
+    text-align: left;
+
+    font-family: Arial, "Noto Sans Bengali", sans-serif;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    box-shadow: 0 5px 15px rgba(15,23,42,.08);
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.choice-button span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    font-weight: normal;
+
     color: #64748b;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-
-    header {
-        padding: 38px 15px;
-    }
-
-    header h1 {
-        font-size: 29px;
-    }
-
-    .card {
-        padding: 17px;
-    }
 
 }
-  /* ================================
-        PREMIUM SPLASH SCREEN
+
+.choice-button:active {
+    transform: scale(.97);
+}
+
+
+/* ================================
+        COMING SOON
+================================ */
+
+.coming-soon {
+
+    background: white;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    padding: 35px 20px;
+
+    margin-top: 20px;
+
+    box-shadow: 0 6px 18px rgba(15,23,42,.08);
+
+}
+
+.coming-soon .icon {
+
+    font-size: 48px;
+
+    margin-bottom: 12px;
+
+}
+
+.coming-soon h2 {
+
+    margin: 0;
+
+    color: #172554;
+
+}
+
+.coming-soon p {
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+}
+
+
+/* ================================
+        FOOTER
+================================ */
+
+footer {
+
+    text-align: center;
+
+    padding: 35px 10px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+/* ================================
+        SPLASH SCREEN
 ================================ */
 
 #splash-screen {
+
     position: fixed;
+
     inset: 0;
+
     z-index: 99999;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     background:
-        radial-gradient(circle at center,
-        #2563eb 0%,
-        #172554 42%,
-        #020617 100%);
+        radial-gradient(
+            circle at center,
+            #2563eb 0%,
+            #172554 42%,
+            #020617 100%
+        );
 
-    animation: splashOut 0.7s ease 1.7s forwards;
+    animation: splashOut .7s ease 2s forwards;
+
 }
-
-
-/* CONTENT */
 
 .splash-content {
+
     text-align: center;
+
     color: white;
 
-    animation: splashEnter 1s cubic-bezier(.2,.8,.2,1);
+    animation:
+        splashEnter
+        1s
+        cubic-bezier(.2,.8,.2,1);
+
 }
 
-
-/* APR */
-
 .apr-logo {
+
     font-size: 64px;
+
     font-weight: 900;
+
     letter-spacing: 12px;
 
     text-shadow:
         0 0 20px rgba(255,255,255,.25);
 
-    animation: logoGlow 1.5s ease infinite alternate;
+    animation:
+        logoGlow
+        1.5s
+        ease
+        infinite
+        alternate;
+
 }
 
-
-/* LINE */
-
 .splash-line {
+
     width: 70px;
+
     height: 2px;
 
     margin: 12px auto 18px;
 
     background: white;
+
     opacity: .7;
 
-    animation: lineGrow 1s ease;
 }
 
-
-/* NAME */
-
 .splash-content h1 {
+
     margin: 0;
 
     font-size: 25px;
-    font-weight: 700;
-    letter-spacing: .5px;
 
-    animation: nameAppear 1s ease .25s both;
+    font-weight: 700;
+
 }
 
-
-/* SSC NOTES */
-
 .splash-content p {
+
     margin-top: 9px;
 
     font-size: 13px;
+
     letter-spacing: 5px;
 
     opacity: .75;
 
-    animation: nameAppear 1s ease .45s both;
 }
 
 
-/* ENTRY */
+/* ================================
+        SPLASH ANIMATION
+================================ */
 
 @keyframes splashEnter {
 
@@ -818,9 +399,6 @@ footer {
 
 }
 
-
-/* APR GLOW */
-
 @keyframes logoGlow {
 
     from {
@@ -833,41 +411,6 @@ footer {
 
 }
 
-
-/* LINE */
-
-@keyframes lineGrow {
-
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 70px;
-    }
-
-}
-
-
-/* TEXT */
-
-@keyframes nameAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* EXIT */
-
 @keyframes splashOut {
 
     to {
@@ -877,38 +420,81 @@ footer {
     }
 
 }
+
+
+/* ================================
+        MOBILE
+================================ */
+
+@media (max-width:480px) {
+
+    header h1 {
+        font-size: 29px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+}
+
 </style>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#172554">
+
 </head>
 
+
 <body>
+
+
+<!-- =================================================
+                    APR SPLASH
+================================================= -->
+
 <div id="splash-screen">
+
     <div class="splash-content">
 
-        <div class="apr-logo">APR</div>
+        <div class="apr-logo">
+            APR
+        </div>
 
         <div class="splash-line"></div>
 
-        <h1>Aritra Paul Raktim</h1>
+        <h1>
+            Aritra Paul Raktim
+        </h1>
 
-        <p>SSC NOTES</p>
+        <p>
+            SSC NOTES
+        </p>
 
     </div>
+
 </div>
 
+
+
 <!-- =================================================
-                         HOME
+                        HOME
 ================================================= -->
 
 <div id="home" class="page active">
 
 <header>
+
     <h1>📚 SSC NOTES</h1>
+
     <p>Class 9–10 Study Notes</p>
+
 </header>
 
+
 <div class="container">
+
 
 <input
     class="search"
@@ -918,48 +504,63 @@ footer {
     onkeyup="searchSubjects()"
 >
 
+
 <div class="section">
     📌 আবশ্যিক বিষয়
 </div>
 
 
-<!-- বাংলা -->
+<div class="card subject"
+     onclick="openPage('bangla')">
 
-<div class="card subject" onclick="openPage('bangla')">
     <h3>📘 বাংলা</h3>
-    <p>বাংলা ১ম পত্র • বাংলা ২য় পত্র</p>
+
+    <p>
+        বাংলা ১ম পত্র • বাংলা ২য় পত্র
+    </p>
+
 </div>
 
 
-<!-- ইংরেজি -->
+<div class="card subject"
+     onclick="openPage('english')">
 
-<div class="card subject" onclick="openPage('english')">
     <h3>📗 ইংরেজি</h3>
-    <p>ইংরেজি ১ম পত্র • ইংরেজি ২য় পত্র</p>
+
+    <p>
+        ইংরেজি ১ম পত্র • ইংরেজি ২য় পত্র
+    </p>
+
 </div>
 
 
-<!-- গণিত -->
+<div class="card subject"
+     onclick="showComingSoon('গণিত')">
 
-<div class="card subject">
     <h3>➗ গণিত</h3>
+
     <p>Mathematics</p>
+
 </div>
 
 
-<!-- ICT -->
+<div class="card subject"
+     onclick="showComingSoon('তথ্য ও যোগাযোগ প্রযুক্তি')">
 
-<div class="card subject">
     <h3>💻 তথ্য ও যোগাযোগ প্রযুক্তি</h3>
+
     <p>ICT</p>
+
 </div>
 
 
-<!-- ধর্ম -->
+<div class="card subject"
+     onclick="openPage('religion')">
 
-<div class="card subject" onclick="openPage('religion')">
     <h3>🛕 ধর্ম ও নৈতিক শিক্ষা</h3>
+
     <p>৪টি ধর্ম</p>
+
 </div>
 
 
@@ -969,27 +570,33 @@ footer {
 </div>
 
 
-<!-- বিজ্ঞান -->
+<div class="card subject"
+     onclick="openPage('science')">
 
-<div class="card subject" onclick="openPage('science')">
     <h3>🔬 বিজ্ঞান বিভাগ</h3>
+
     <p>Science</p>
+
 </div>
 
 
-<!-- ব্যবসায় শিক্ষা -->
+<div class="card subject"
+     onclick="openPage('business')">
 
-<div class="card subject" onclick="openPage('business')">
     <h3>💼 ব্যবসায় শিক্ষা</h3>
+
     <p>Business Studies</p>
+
 </div>
 
 
-<!-- মানবিক -->
+<div class="card subject"
+     onclick="openPage('humanities')">
 
-<div class="card subject" onclick="openPage('humanities')">
     <h3>🎓 মানবিক বিভাগ</h3>
+
     <p>Humanities</p>
+
 </div>
 
 
@@ -999,26 +606,43 @@ footer {
 </div>
 
 
-<div class="card subject">
+<div class="card subject"
+     onclick="showComingSoon('শারীরিক শিক্ষা')">
+
     <h3>🏃 শারীরিক শিক্ষা</h3>
+
 </div>
 
-<div class="card subject">
+
+<div class="card subject"
+     onclick="showComingSoon('ক্যারিয়ার শিক্ষা')">
+
     <h3>🎯 ক্যারিয়ার শিক্ষা</h3>
+
 </div>
 
-<div class="card subject">
+
+<div class="card subject"
+     onclick="showComingSoon('গার্হস্থ্য বিজ্ঞান')">
+
     <h3>🏠 গার্হস্থ্য বিজ্ঞান</h3>
+
 </div>
 
-<div class="card subject">
+
+<div class="card subject"
+     onclick="showComingSoon('চারু ও কারুকলা')">
+
     <h3>🎨 চারু ও কারুকলা</h3>
-</div>
 
 </div>
+
+
+</div>
+
 
 <footer>
-    SSC Notes • Class 9–10
+    APR • SSC Notes • Class 9–10
 </footer>
 
 </div>
@@ -1026,33 +650,54 @@ footer {
 
 
 <!-- =================================================
-                         বাংলা
+                       বাংলা
 ================================================= -->
 
 <div id="bangla" class="page">
 
 <header>
+
     <h1>📘 বাংলা</h1>
+
     <p>বাংলা বিষয়ের নোট</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
 
-<div class="card" onclick="openPage('bangla1')">
+<div class="card"
+     onclick="openPage('bangla1')">
+
     <h3>📖 বাংলা ১ম পত্র</h3>
-    <p>বাংলা সাহিত্য • বাংলা সহপাঠ</p>
+
+    <p>
+        বাংলা সাহিত্য • বাংলা সহপাঠ
+    </p>
+
 </div>
 
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('বাংলা ২য় পত্র')">
+
     <h3>📝 বাংলা ২য় পত্র</h3>
-    <p>ব্যাকরণ ও নির্মিতি</p>
+
+    <p>
+        ব্যাকরণ ও নির্মিতি
+    </p>
+
 </div>
+
 
 </div>
 
@@ -1061,33 +706,210 @@ footer {
 
 
 <!-- =================================================
-                    বাংলা ১ম পত্র
+                  বাংলা ১ম পত্র
 ================================================= -->
 
 <div id="bangla1" class="page">
 
 <header>
+
     <h1>📖 বাংলা ১ম পত্র</h1>
+
     <p>বাংলা সাহিত্য ও সহপাঠ</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('bangla')">
-    ← ফিরে যান
+
+<button class="back"
+        onclick="openPage('bangla')">
+
+    ← বাংলা
+
 </button>
 
 
-<div class="card">
+<div class="card"
+     onclick="openPage('bangla-sahitya')">
+
     <h3>📚 বাংলা সাহিত্য</h3>
-    <p>গদ্য ও পদ্য</p>
+
+    <p>
+        গদ্য ও পদ্য
+    </p>
+
 </div>
 
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('বাংলা সহপাঠ')">
+
     <h3>📕 বাংলা সহপাঠ</h3>
-    <p>উপন্যাস ও নাটক</p>
+
+    <p>
+        উপন্যাস ও নাটক
+    </p>
+
 </div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                  বাংলা সাহিত্য
+================================================= -->
+
+<div id="bangla-sahitya" class="page">
+
+<header>
+
+    <h1>📚 বাংলা সাহিত্য</h1>
+
+    <p>গদ্য ও পদ্য</p>
+
+</header>
+
+
+<div class="container">
+
+
+<button class="back"
+        onclick="openPage('bangla1')">
+
+    ← বাংলা ১ম পত্র
+
+</button>
+
+
+<!-- গদ্য আলাদা BUTTON -->
+
+<button class="choice-button"
+        onclick="openPage('bangla-goddo')">
+
+    📘 গদ্য
+
+    <span>
+        বাংলা সাহিত্যের গদ্য অংশ
+    </span>
+
+</button>
+
+
+<!-- পদ্য আলাদা BUTTON -->
+
+<button class="choice-button"
+        onclick="openPage('bangla-poddyo')">
+
+    📝 পদ্য
+
+    <span>
+        বাংলা সাহিত্যের পদ্য অংশ
+    </span>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                        গদ্য
+================================================= -->
+
+<div id="bangla-goddo" class="page">
+
+<header>
+
+    <h1>📘 গদ্য</h1>
+
+    <p>বাংলা সাহিত্যের গদ্য অংশ</p>
+
+</header>
+
+
+<div class="container">
+
+
+<button class="back"
+        onclick="openPage('bangla-sahitya')">
+
+    ← বাংলা সাহিত্য
+
+</button>
+
+
+<div class="coming-soon">
+
+    <div class="icon">📚</div>
+
+    <h2>
+        গদ্যের নোট শীঘ্রই আসছে
+    </h2>
+
+    <p>
+        এই অংশের নোট এখনো আপলোড করা হয়নি।<br>
+        খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। 💙
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                        পদ্য
+================================================= -->
+
+<div id="bangla-poddyo" class="page">
+
+<header>
+
+    <h1>📝 পদ্য</h1>
+
+    <p>বাংলা সাহিত্যের পদ্য অংশ</p>
+
+</header>
+
+
+<div class="container">
+
+
+<button class="back"
+        onclick="openPage('bangla-sahitya')">
+
+    ← বাংলা সাহিত্য
+
+</button>
+
+
+<div class="coming-soon">
+
+    <div class="icon">📖</div>
+
+    <h2>
+        পদ্যের নোট শীঘ্রই আসছে
+    </h2>
+
+    <p>
+        এই অংশের নোট এখনো আপলোড করা হয়নি।<br>
+        খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। 💙
+    </p>
+
+</div>
+
 
 </div>
 
@@ -1102,27 +924,44 @@ footer {
 <div id="english" class="page">
 
 <header>
+
     <h1>📗 ইংরেজি</h1>
+
     <p>English</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('ইংরেজি ১ম পত্র')">
+
     <h3>📖 ইংরেজি ১ম পত্র</h3>
+
     <p>English First Paper</p>
+
 </div>
 
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('ইংরেজি ২য় পত্র')">
+
     <h3>📝 ইংরেজি ২য় পত্র</h3>
+
     <p>English Second Paper</p>
+
 </div>
+
 
 </div>
 
@@ -1131,83 +970,70 @@ footer {
 
 
 <!-- =================================================
-                     ধর্ম
+                       RELIGION
 ================================================= -->
 
 <div id="religion" class="page">
 
 <header>
+
     <h1>🛕 ধর্ম ও নৈতিক শিক্ষা</h1>
+
     <p>ধর্মভিত্তিক নোট</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
 
-<!-- ইসলাম -->
+<div class="card"
+     onclick="showComingSoon('ইসলাম শিক্ষা')">
 
-<div class="card" onclick="openPage('islam')">
     <h3>☪️ ইসলাম শিক্ষা</h3>
+
     <p>ইসলাম ধর্মের নোট</p>
+
 </div>
 
 
-<!-- হিন্দু -->
+<div class="card"
+     onclick="showComingSoon('হিন্দুধর্ম শিক্ষা')">
 
-<div class="card" onclick="openPage('hindu')">
     <h3>🕉️ হিন্দুধর্ম শিক্ষা</h3>
+
     <p>হিন্দুধর্মের নোট</p>
+
 </div>
 
 
-<!-- বৌদ্ধ -->
+<div class="card"
+     onclick="showComingSoon('বৌদ্ধধর্ম শিক্ষা')">
 
-<div class="card" onclick="openPage('buddhist')">
     <h3>☸️ বৌদ্ধধর্ম শিক্ষা</h3>
+
     <p>বৌদ্ধধর্মের নোট</p>
+
 </div>
 
 
-<!-- খ্রিষ্টান -->
+<div class="card"
+     onclick="showComingSoon('খ্রিষ্টধর্ম ও নৈতিক শিক্ষা')">
 
-<div class="card" onclick="openPage('christian')">
     <h3>✝️ খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</h3>
+
     <p>খ্রিষ্টধর্মের নোট</p>
-</div>
 
 </div>
 
-</div>
-
-
-
-<!-- =================================================
-                       ইসলাম
-================================================= -->
-
-<div id="islam" class="page">
-
-<header>
-    <h1>☪️ ইসলাম শিক্ষা</h1>
-</header>
-
-<div class="container">
-
-<button class="back" onclick="openPage('religion')">
-    ← ফিরে যান
-</button>
-
-<div class="card">
-    <h3>📚 অধ্যায় ১</h3>
-</div>
-
-<div class="card">
-    <h3>📚 অধ্যায় ২</h3>
-</div>
 
 </div>
 
@@ -1216,131 +1042,62 @@ footer {
 
 
 <!-- =================================================
-                      হিন্দুধর্ম
-================================================= -->
-
-<div id="hindu" class="page">
-
-<header>
-    <h1>🕉️ হিন্দুধর্ম শিক্ষা</h1>
-</header>
-
-<div class="container">
-
-<button class="back" onclick="openPage('religion')">
-    ← ফিরে যান
-</button>
-
-<div class="card">
-    <h3>📚 অধ্যায় ১</h3>
-</div>
-
-<div class="card">
-    <h3>📚 অধ্যায় ২</h3>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =================================================
-                      বৌদ্ধধর্ম
-================================================= -->
-
-<div id="buddhist" class="page">
-
-<header>
-    <h1>☸️ বৌদ্ধধর্ম শিক্ষা</h1>
-</header>
-
-<div class="container">
-
-<button class="back" onclick="openPage('religion')">
-    ← ফিরে যান
-</button>
-
-<div class="card">
-    <h3>📚 অধ্যায় ১</h3>
-</div>
-
-<div class="card">
-    <h3>📚 অধ্যায় ২</h3>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =================================================
-                     খ্রিষ্টধর্ম
-================================================= -->
-
-<div id="christian" class="page">
-
-<header>
-    <h1>✝️ খ্রিষ্টধর্ম ও নৈতিক শিক্ষা</h1>
-</header>
-
-<div class="container">
-
-<button class="back" onclick="openPage('religion')">
-    ← ফিরে যান
-</button>
-
-<div class="card">
-    <h3>📚 অধ্যায় ১</h3>
-</div>
-
-<div class="card">
-    <h3>📚 অধ্যায় ২</h3>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =================================================
-                    SCIENCE
+                     SCIENCE
 ================================================= -->
 
 <div id="science" class="page">
 
 <header>
+
     <h1>🔬 বিজ্ঞান বিভাগ</h1>
+
     <p>Science Group</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
-<div class="card">
-    <h3>🌍 বাংলাদেশ ও বিশ্বপরিচয়</h3>
-</div>
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('পদার্থবিজ্ঞান')">
+
     <h3>🧲 পদার্থবিজ্ঞান</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('রসায়ন')">
+
     <h3>🧪 রসায়ন</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('জীববিজ্ঞান')">
+
     <h3>🧬 জীববিজ্ঞান</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('উচ্চতর গণিত')">
+
     <h3>📐 উচ্চতর গণিত</h3>
+
 </div>
+
 
 </div>
 
@@ -1355,35 +1112,56 @@ footer {
 <div id="business" class="page">
 
 <header>
+
     <h1>💼 ব্যবসায় শিক্ষা</h1>
+
     <p>Business Studies</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
-<div class="card">
-    <h3>🔬 বিজ্ঞান</h3>
-</div>
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('হিসাববিজ্ঞান')">
+
     <h3>📊 হিসাববিজ্ঞান</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('ব্যবসায় উদ্যোগ')">
+
     <h3>💼 ব্যবসায় উদ্যোগ</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('ফিন্যান্স ও ব্যাংকিং')">
+
     <h3>🏦 ফিন্যান্স ও ব্যাংকিং</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('কৃষি শিক্ষা')">
+
     <h3>🌾 কৃষি শিক্ষা</h3>
+
 </div>
+
 
 </div>
 
@@ -1398,35 +1176,110 @@ footer {
 <div id="humanities" class="page">
 
 <header>
+
     <h1>🎓 মানবিক বিভাগ</h1>
+
     <p>Humanities</p>
+
 </header>
+
 
 <div class="container">
 
-<button class="back" onclick="openPage('home')">
+
+<button class="back"
+        onclick="openPage('home')">
+
     ← ফিরে যান
+
 </button>
 
-<div class="card">
-    <h3>🔬 বিজ্ঞান</h3>
-</div>
 
-<div class="card">
+<div class="card"
+     onclick="showComingSoon('অর্থনীতি')">
+
     <h3>💰 অর্থনীতি</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('পৌরনীতি ও নাগরিকতা')">
+
     <h3>⚖️ পৌরনীতি ও নাগরিকতা</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('ভূগোল ও পরিবেশ')">
+
     <h3>🌎 ভূগোল ও পরিবেশ</h3>
+
 </div>
 
-<div class="card">
+
+<div class="card"
+     onclick="showComingSoon('বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা')">
+
     <h3>📜 বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা</h3>
+
 </div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+                 COMING SOON PAGE
+================================================= -->
+
+<div id="coming-soon-page" class="page">
+
+<header>
+
+    <h1 id="coming-title">
+        📚 নোট
+    </h1>
+
+    <p>
+        APR SSC Notes
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+<button class="back"
+        onclick="goBackFromComingSoon()">
+
+    ← ফিরে যান
+
+</button>
+
+
+<div class="coming-soon">
+
+    <div class="icon">
+        📚
+    </div>
+
+    <h2>
+        নোট শীঘ্রই আসছে
+    </h2>
+
+    <p>
+        এই বিষয়ের নোট এখনো আপলোড করা হয়নি।<br>
+        খুব শীঘ্রই এখানে নোট যুক্ত করা হবে। 💙
+    </p>
+
+</div>
+
 
 </div>
 
@@ -1440,50 +1293,107 @@ footer {
 
 <script>
 
-function openPage(page){
+/* =========================
+        PAGE OPEN
+========================= */
 
-    let pages =
-    document.querySelectorAll(".page");
+function openPage(pageId) {
 
-    pages.forEach(function(p){
+    var pages =
+        document.querySelectorAll(".page");
 
-        p.classList.remove("active");
+    pages.forEach(function(page) {
+
+        page.classList.remove("active");
 
     });
 
-    document
-    .getElementById(page)
-    .classList.add("active");
 
-    window.scrollTo(0,0);
+    var selectedPage =
+        document.getElementById(pageId);
+
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+        window.scrollTo(0, 0);
+
+    }
 
 }
 
 
-function searchSubjects(){
+/* =========================
+        COMING SOON
+========================= */
 
-    let input =
-    document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+var previousPage = "home";
 
-    let subjects =
-    document
-    .querySelectorAll(".subject");
 
-    subjects.forEach(function(card){
+function showComingSoon(subjectName) {
 
-        let text =
-        card.innerText.toLowerCase();
+    var activePage =
+        document.querySelector(".page.active");
 
-        if(text.includes(input)){
+    if (activePage) {
 
-            card.style.display="block";
+        previousPage = activePage.id;
 
-        }else{
+    }
 
-            card.style.display="none";
+
+    document.getElementById("coming-title").innerText =
+        "📚 " + subjectName;
+
+
+    openPage("coming-soon-page");
+
+}
+
+
+/* =========================
+        COMING SOON BACK
+========================= */
+
+function goBackFromComingSoon() {
+
+    openPage(previousPage);
+
+}
+
+
+/* =========================
+        SEARCH
+========================= */
+
+function searchSubjects() {
+
+    var input =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    var subjects =
+        document.querySelectorAll(".subject");
+
+
+    subjects.forEach(function(card) {
+
+        var text =
+            card.innerText.toLowerCase();
+
+
+        if (text.includes(input)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
 
         }
 
@@ -1491,11 +1401,33 @@ function searchSubjects(){
 
 }
 
-</script>
-<script>
+
+/* =========================
+        SERVICE WORKER
+========================= */
+
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+
+    window.addEventListener("load", function() {
+
+        navigator.serviceWorker
+        .register("sw.js")
+        .catch(function(error) {
+
+            console.log(
+                "Service Worker Error:",
+                error
+            );
+
+        });
+
+    });
+
 }
+
 </script>
+
+
 </body>
+
 </html>
